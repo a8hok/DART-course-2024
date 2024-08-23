@@ -1,2 +1,4 @@
-# DART-course-2024
-DART-course-2024
+# DART-2024
+
+Basic Dart Programming
+
