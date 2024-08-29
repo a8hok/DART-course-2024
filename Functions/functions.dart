@@ -1,15 +1,13 @@
 void greet(String person) {
   print("Hello, $person!");
+}
 
-  // Nested function
-  String welcomeMessage() {
-    return "Welcome to Dart Programming!";
-  }
-
-  // Return from function
-  print(welcomeMessage());
+String welcomeMessage() {
+  return "Welcome to Dart Programming!";
 }
 
 void main() {
   greet("Raju");
+
+  print(welcomeMessage());
 }
