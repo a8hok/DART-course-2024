@@ -25,8 +25,9 @@ List<String> calculateTotal(List<Map<String, dynamic>> studentList) {
 //Pass the arguments if needed
 //Get the arguments passed
 //Do Manipulations
+// make sure the return type
 //Return it
-//Catch it
+//Catch it with a variable name and proper variable type
 String calculateGrade(double avg) {
   if (avg > 85 && avg <= 100) {
     return ('Grade: A');
