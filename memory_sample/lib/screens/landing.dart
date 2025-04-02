@@ -26,11 +26,11 @@ class LandingPage extends StatelessWidget {
               MainAxisAlignment.center, // Centers content vertically
           children: [
             // Centering the SVG image
-            SvgPicture.asset(
-              'assets/images/landing-page.svg',
-              width: 300, // Adjust size as needed
-              fit: BoxFit.contain,
-            ),
+            // SvgPicture.asset(
+            //   'assets/images/landing-page.svg',
+            //   width: 300, // Adjust size as needed
+            //   fit: BoxFit.contain,
+            // ),
 
             const SizedBox(height: 30), // Spacing between image and text
 
