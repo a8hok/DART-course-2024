@@ -61,8 +61,6 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - images/landing-page.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -95,4 +93,8 @@ flutter:
       fonts:
         - asset: assets/fonts/Montez-Regular.ttf
           weight: 400
+
+  assets:
+    - assets/images/top-curve.svg
+    - assets/images/bottom-curve.svg
 
