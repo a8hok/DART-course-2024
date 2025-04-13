@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'create_account.dart'; // Import the create account page
 import 'forgot_password.dart'; // Import the forgot password page
+import 'get_started.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -27,11 +27,11 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-
+          
           // Main content container
           Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.fromLTRB(40, 100, 40, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                   _buildTextField('Username', Icons.person),
                   const SizedBox(height: 20),
                   _buildTextField('Password', Icons.lock, obscureText: true),
-                  const SizedBox(height: 20), // Added more spacing
+                  const SizedBox(height: 30), // Added more spacing
 
                   // Forgot Password (Clickable)
                   Align(
@@ -77,31 +77,65 @@ class LoginPage extends StatelessWidget {
                         style: GoogleFonts.lato(
                           fontSize: 15,
                           color: Colors.blue,
-                          decoration: TextDecoration.underline,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 40),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+                  const SizedBox(height: 80),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShaderMask(
+                        shaderCallback: (bounds) => const LinearGradient(
+                          colors: [
+                            Color(0xFF3929C7),
+                            Color(0xFFFA457E),
+                            Color(0xFF7B49FF),
+                          ],
+                        ).createShader(bounds),
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'Lato',
+                          ),
+                        ),
                       ),
-                      backgroundColor: Colors.deepPurple,
-                    ),
-                    child: Text(
-                      'Sign In',
-                      style: GoogleFonts.lato(
-                        fontSize: 20,
-                        color: Colors.white,
+                      const SizedBox(width: 12),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const GetStartedPage()),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFFF977D6),
+                                Color(0xFF623AA2),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                            size: 22,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 20),
+
+                  const SizedBox(height: 60),
 
                   // Create Account (Clickable)
                   GestureDetector(
@@ -113,14 +147,25 @@ class LoginPage extends StatelessWidget {
                             builder: (context) => const CreateAccountPage()),
                       );
                     },
-                    child: Text(
-                      "Don't have an account? Create",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.lato(
-                        fontSize: 15,
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
+                    child: Text.rich(
+                      TextSpan(
+                        text: "Don't have an account? ",
+                        style: GoogleFonts.lato(
+                          fontSize: 15,
+                          color: Colors.black, // Black color for the main text
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Create",
+                            style: GoogleFonts.lato(
+                              fontSize: 15,
+                              color: Colors.blue, // Blue only for "Create"
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(
