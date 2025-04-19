@@ -193,7 +193,7 @@ class AddTaskPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: const Color.fromARGB(255, 151, 150, 150).withOpacity(0.9),
+            color: const Color.fromARGB(255, 118, 117, 117).withOpacity(1),
             spreadRadius: 1,
             blurRadius: 6,
             offset: const Offset(0, 3),
@@ -202,12 +202,12 @@ class AddTaskPage extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black38),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
           hintText: hint,
-          hintStyle: const TextStyle(color: Colors.black26),
+          hintStyle: const TextStyle(color: Colors.black38),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide.none,
@@ -288,7 +288,7 @@ Widget _buildDateTimePicker(BuildContext context, DateTime? selectedDateTime,
               selectedDateTime != null
                   ? "${selectedDateTime.day}/${selectedDateTime.month}/${selectedDateTime.year} ${selectedDateTime.hour.toString().padLeft(2, '0')}:${selectedDateTime.minute.toString().padLeft(2, '0')}"
                   : "Select date & time",
-              style: const TextStyle(color: Colors.black87),
+              style: const TextStyle(color: Colors.black38),
             ),
           ),
         ],
