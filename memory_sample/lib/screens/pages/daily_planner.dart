@@ -11,16 +11,26 @@ class DailyPlannerPage extends StatefulWidget {
   State<DailyPlannerPage> createState() => _DailyPlannerPageState();
 }
 
+class TaskItem {
+  final String title;
+  final DateTime dateTime;
+
+  TaskItem({required this.title, required this.dateTime});
+}
+
+final List<TaskItem> tasks = [
+  TaskItem(
+      title: "Take medicine at 10 AM", dateTime: DateTime(2025, 4, 19, 10, 0)),
+  TaskItem(title: "Walk for 1 hour", dateTime: DateTime(2025, 4, 19, 7, 30)),
+  TaskItem(title: "Swim for 30 mins", dateTime: DateTime(2025, 4, 19, 16, 0)),
+  TaskItem(
+      title: "Bicycle ride for 15 mins",
+      dateTime: DateTime(2025, 4, 19, 18, 0)),
+  TaskItem(title: "Reach 10,000 steps", dateTime: DateTime(2025, 4, 19, 20, 0)),
+];
+
 class _DailyPlannerPageState extends State<DailyPlannerPage> {
   List<bool> taskStatus = [false, false, false, false, false];
-
-  final List<String> tasks = [
-    "Take medicine at 10 AM",
-    "Walk for 1 hour",
-    "Swim for 30 mins",
-    "Bicycle ride for 15 mins",
-    "Reach 10,000 steps",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -113,11 +123,27 @@ class _DailyPlannerPageState extends State<DailyPlannerPage> {
                                     : null,
                               ),
                               const SizedBox(width: 12),
-                              Text(
-                                tasks[i],
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black87,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      tasks[i].title,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      "${tasks[i].dateTime.day}/${tasks[i].dateTime.month}/${tasks[i].dateTime.year} "
+                                      "${tasks[i].dateTime.hour.toString().padLeft(2, '0')}:${tasks[i].dateTime.minute.toString().padLeft(2, '0')}",
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
