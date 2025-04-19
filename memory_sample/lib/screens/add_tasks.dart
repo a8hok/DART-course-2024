@@ -9,6 +9,7 @@ class AddTaskPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Controller for the TextField
     TextEditingController taskController = TextEditingController();
+    DateTime? selectedDateTime;
 
     // Gradient effect on the title
     const LinearGradient gradient = LinearGradient(
@@ -74,6 +75,12 @@ class AddTaskPage extends StatelessWidget {
                     // Text field for task input
                     _buildTextField('Enter a task', taskController),
 
+                    const SizedBox(height: 20),
+
+                    _buildDateTimePicker(context, selectedDateTime,
+                        (newDateTime) {
+                      selectedDateTime = newDateTime;
+                    }),
                     const SizedBox(height: 20),
 
                     // Add Task Button
@@ -226,6 +233,68 @@ class _AnimatedSendButton extends StatefulWidget {
 
   @override
   State<_AnimatedSendButton> createState() => _AnimatedSendButtonState();
+}
+
+Widget _buildDateTimePicker(BuildContext context, DateTime? selectedDateTime,
+    Function(DateTime) onDateTimeChanged) {
+  return GestureDetector(
+    onTap: () async {
+      final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: selectedDateTime ?? DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100),
+      );
+
+      if (pickedDate != null) {
+        final TimeOfDay? pickedTime = await showTimePicker(
+          context: context,
+          initialTime:
+              TimeOfDay.fromDateTime(selectedDateTime ?? DateTime.now()),
+        );
+
+        if (pickedTime != null) {
+          final DateTime fullDateTime = DateTime(
+            pickedDate.year,
+            pickedDate.month,
+            pickedDate.day,
+            pickedTime.hour,
+            pickedTime.minute,
+          );
+          onDateTimeChanged(fullDateTime);
+        }
+      }
+    },
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 151, 150, 150).withOpacity(0.9),
+            spreadRadius: 1,
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.calendar_today, color: Colors.black45),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              selectedDateTime != null
+                  ? "${selectedDateTime.day}/${selectedDateTime.month}/${selectedDateTime.year} ${selectedDateTime.hour.toString().padLeft(2, '0')}:${selectedDateTime.minute.toString().padLeft(2, '0')}"
+                  : "Select date & time",
+              style: const TextStyle(color: Colors.black87),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
 
 class _AnimatedSendButtonState extends State<_AnimatedSendButton>
