@@ -131,7 +131,7 @@ class _RotatingSVGState extends State<RotatingSVG>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 7),
     )..repeat(); // Infinite rotation
   }
 
