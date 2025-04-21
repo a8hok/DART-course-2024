@@ -16,7 +16,7 @@ class LandingPage extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Color(0xFF7B49FF), // Light Purple
-              Color.fromARGB(255, 237, 101, 144),
+              Color.fromARGB(255, 239, 133, 166),
               Color(0xFF3929C7),
             ],
           ),

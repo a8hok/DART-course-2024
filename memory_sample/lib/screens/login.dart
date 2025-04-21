@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Main content container
           Center(
             child: Padding(
@@ -179,7 +179,7 @@ class LoginPage extends StatelessWidget {
           // Bottom curve now positioned at the last element
           Positioned(
             bottom: 0,
-            left: -280,
+            left: -312,
             right: 0,
             child: SizedBox(
               height: 300, // Adjust height as needed

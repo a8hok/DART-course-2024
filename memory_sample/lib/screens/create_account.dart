@@ -162,7 +162,7 @@ class CreateAccountPage extends StatelessWidget {
           // Bottom curve
           Positioned(
             bottom: 0,
-            left: -280,
+            left: -312,
             right: 0,
             child: SizedBox(
               height: 300,
