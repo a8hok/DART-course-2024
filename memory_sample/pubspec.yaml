@@ -52,6 +52,7 @@ dev_dependencies:
   intl: ^0.18.0
   confetti: ^0.7.0
   crossword: ^1.0.0
+  image_picker: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -103,4 +104,8 @@ flutter:
     - assets/images/bottom-curve.svg
     - assets/images/loader.svg
     - assets/images/streak.png
+    - assets/images/placeholder.png
+    - assets/images/placeholder1.png
+    - assets/animations/celebrations.json
+    - assets/animations/celebration2.json
 
