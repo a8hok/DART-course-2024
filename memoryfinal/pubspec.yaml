@@ -55,6 +55,9 @@ dev_dependencies:
   image_picker: ^1.0.4
   flutter_inappwebview: ^6.1.1+1
   youtube_player_flutter: ^9.1.1
+  cupertino_icons: ^1.0.8
+  firebase_auth: ^5.4.0
+  fluttertoast: ^8.2.5
 
 
 
