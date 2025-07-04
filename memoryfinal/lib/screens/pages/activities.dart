@@ -12,8 +12,8 @@ class Activities extends StatefulWidget {
 
 class _ActivitiesState extends State<Activities> {
   final List<String> videoIds = [
-    'T3fxXYmQSOI',
-    'jO-jIFgGJ4k',
+    'WltkvVB_lfM',
+    'rT_kZvmhyH4',
   ];
 
   late List<YoutubePlayerController> _controllers;
